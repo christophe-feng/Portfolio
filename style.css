@@ -1,0 +1,37 @@
+html {
+    scroll-behavior: smooth;
+    /* 避免錨點定位時標題被置頂導覽列遮住 */
+    scroll-padding-top: 100px; 
+}
+
+body {
+    /* 根據導覽列的高度調整留白，避免第一個色塊被蓋住 */
+    padding-top: 100px;
+}
+
+.container-content{
+    width: 100%;
+    height: 85vh;
+    margin-top: 1px;
+}
+
+h2 {
+    margin-bottom: 5px;
+}
+
+.portfolio{
+    background-color: blue;
+}
+
+.php{
+    background-color: red;
+}
+
+.laravel{
+    background-color: yellow;
+}
+
+.bquiz{
+    background-color: gray;
+}
+
