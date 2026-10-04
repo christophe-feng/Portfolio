@@ -1,61 +1,337 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>個人作品集與技術專區</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body>
-    <nav class="fixed-top bg-white py-1 shadow-sm">
-        <div class="container mt-3">
-            <h2>Pills with Dropdown</h2>
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">About Me</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">PHP</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Laravel</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">網頁設計 乙級專區</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">題組 1</a></li>
-                        <li><a class="dropdown-item" href="#">題組 2</a></li>
-                        <li><a class="dropdown-item" href="#">題組 3</a></li>
-                        <li><a class="dropdown-item" href="#">題組 4</a></li>
-                    </ul>
-                </li>
-            </ul>
+<body data-bs-spy="scroll" data-bs-target="#main-nav" tabindex="0">
+
+    <!-- 導覽列 -->
+    <nav id="main-nav" class="navbar navbar-expand-lg fixed-top modern-navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#about">
+                <i class="bi bi-code-slash me-1"></i>DevPortfolio
+            </a>
+            <!-- 手機版收合按鈕 -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"
+                aria-controls="navContent" aria-expanded="false" aria-label="切換導航">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="nav nav-pills ms-auto my-2 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#about">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#frontend">前端與 API 練習</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bquiz">網頁設計 乙級專區</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#php">PHP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#laravel">Laravel</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <div id="container-portfolio"></div>
-    <div class="container-content portfolio">
+    <!-- 區塊 1: 關於我 (About Me) -->
+    <section id="about" class="section-block section-about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-3">你好，我是全端開發探索者</h1>
+                    <p class="lead text-muted mb-4">專注於 PHP / Laravel 後端架構開發，並積極實作現代前端與非同步 API 串接應用</p>
+                    <a href="#frontend" class="btn btn-primary px-4 py-2 me-2">前端與 API 作品</a>
+                    <a href="#php" class="btn btn-outline-primary px-4 py-2 me-2">後端專案</a>
+                    <a href="#bquiz" class="btn btn-outline-secondary px-4 py-2">乙級題庫</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </div>
+    <!-- 區塊 2: 前端與 API 串接練習 (新增區塊) -->
+    <section id="frontend" class="section-block section-frontend">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2 class="fw-bold">前端介面與 API 串接實作</h2>
+                <p class="text-muted">涵蓋簡易一頁式切版、非同步資料提取 (Fetch API)、狀態管理與動態 DOM 渲染</p>
+            </div>
+            <div class="row g-4">
+                <!-- 項目 1: 一頁式產品介紹頁 -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="card h-100 shadow-sm border-0 project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-primary-subtle text-primary p-2 me-2">
+                                    <i class="bi bi-layout-text-window-reverse fs-5"></i>
+                                </span>
+                                <div>
+                                    <h5 class="card-title fw-bold mb-0">極簡一頁式產品展示頁 (Landing Page)</h5>
+                                    <small class="text-muted">響應式版面 / 平滑捲動 / 互動體驗</small>
+                                </div>
+                            </div>
+                            <p class="card-text text-secondary mb-4">
+                                使用純 HTML5、CSS 彈性盒 (Flexbox/Grid) 與原生 JavaScript 構建的一頁式產品行銷頁面。包含視差滾動效果、滾動進度條與響應式抽屜導航選單。
+                            </p>
+                            <div class="mb-4">
+                                <span class="badge bg-light text-dark border me-1">HTML5 / CSS3</span>
+                                <span class="badge bg-light text-dark border me-1">JavaScript ES6</span>
+                                <span class="badge bg-light text-dark border">RWD 響應式</span>
+                            </div>
+                            <div class="mt-auto pt-3 border-top d-flex gap-2">
+                                <a href="#" class="btn btn-sm btn-primary flex-fill">
+                                    <i class="bi bi-box-arrow-up-right me-1"></i> 線上 Demo
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary flex-fill">
+                                    <i class="bi bi-github me-1"></i> 原始碼
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <div id="container-php"></div>
-    <div class="container-content php">
+                <!-- 項目 2: 即時天氣 & 景點資料查詢 -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="card h-100 shadow-sm border-0 project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-info-subtle text-info p-2 me-2">
+                                    <i class="bi bi-cloud-sun fs-5"></i>
+                                </span>
+                                <div>
+                                    <h5 class="card-title fw-bold mb-0">即時氣象與空氣品質查詢應用</h5>
+                                    <small class="text-muted">REST API / 非同步資料流 / 錯誤捕捉</small>
+                                </div>
+                            </div>
+                            <p class="card-text text-secondary mb-4">
+                                串接開放資料平臺 (OpenWeather / 政府開放資料 API)。利用 <code>async/await</code> 非同步載入縣市天氣、AQI 指數及溫度變化，並提供關鍵字即時篩選與錯誤回退狀態處理。
+                            </p>
+                            <div class="mb-4">
+                                <span class="badge bg-light text-dark border me-1">Fetch API</span>
+                                <span class="badge bg-light text-dark border me-1">Async / Await</span>
+                                <span class="badge bg-light text-dark border">JSON 解析</span>
+                            </div>
+                            <div class="mt-auto pt-3 border-top d-flex gap-2">
+                                <a href="#" class="btn btn-sm btn-primary flex-fill">
+                                    <i class="bi bi-box-arrow-up-right me-1"></i> 線上 Demo
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary flex-fill">
+                                    <i class="bi bi-github me-1"></i> 原始碼
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    </div>
+                <!-- 項目 3: 隨機語錄與匯率即時試算 -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="card h-100 shadow-sm border-0 project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-warning-subtle text-warning p-2 me-2">
+                                    <i class="bi bi-currency-exchange fs-5"></i>
+                                </span>
+                                <div>
+                                    <h5 class="card-title fw-bold mb-0">即時匯率轉換器與金融數據卡</h5>
+                                    <small class="text-muted">雙向換算 / 快取機制 / 防抖處裡</small>
+                                </div>
+                            </div>
+                            <p class="card-text text-secondary mb-4">
+                                串接第三方匯率 API，實作多國貨幣即時換算小工具。具備輸入防抖 (Debounce) 機制減少頻繁請求，並搭配 <code>localStorage</code> 進行熱門貨幣的快取與歷史記錄。
+                            </p>
+                            <div class="mb-4">
+                                <span class="badge bg-light text-dark border me-1">RESTful API</span>
+                                <span class="badge bg-light text-dark border me-1">Debounce 防抖</span>
+                                <span class="badge bg-light text-dark border">LocalStorage</span>
+                            </div>
+                            <div class="mt-auto pt-3 border-top d-flex gap-2">
+                                <a href="#" class="btn btn-sm btn-primary flex-fill">
+                                    <i class="bi bi-box-arrow-up-right me-1"></i> 線上 Demo
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary flex-fill">
+                                    <i class="bi bi-github me-1"></i> 原始碼
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <div id="container-laravel"></div>
-    <div class="container-content laravel">
+                <!-- 項目 4: 輕量 Todo List 與狀態管理 -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="card h-100 shadow-sm border-0 project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-success-subtle text-success p-2 me-2">
+                                    <i class="bi bi-check2-circle fs-5"></i>
+                                </span>
+                                <div>
+                                    <h5 class="card-title fw-bold mb-0">任務狀態管理待辦清單</h5>
+                                    <small class="text-muted">CRUD 操作 / 篩選分類 / 本地存儲</small>
+                                </div>
+                            </div>
+                            <p class="card-text text-secondary mb-4">
+                                練習純前端 JavaScript 的物件狀態導向設計。支援任務新增、即時編輯、完成切換與批次清除，並使用自訂事件與模組化代碼分離視圖與資料層。
+                            </p>
+                            <div class="mb-4">
+                                <span class="badge bg-light text-dark border me-1">JavaScript OOP</span>
+                                <span class="badge bg-light text-dark border me-1">DOM 操作</span>
+                                <span class="badge bg-light text-dark border">狀態管理</span>
+                            </div>
+                            <div class="mt-auto pt-3 border-top d-flex gap-2">
+                                <a href="#" class="btn btn-sm btn-primary flex-fill">
+                                    <i class="bi bi-box-arrow-up-right me-1"></i> 線上 Demo
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary flex-fill">
+                                    <i class="bi bi-github me-1"></i> 原始碼
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </div>
+    <!-- 區塊 3: 乙級專區 -->
+    <section id="bquiz" class="section-block section-bquiz">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2 class="fw-bold">網頁設計 乙級專區</h2>
+                <p class="text-muted">題組解題技巧、模組化架構與常見考點整理</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3" id="bquiz-1">
+                    <div class="card h-100 border-0 shadow-sm text-center p-3">
+                        <h5 class="fw-bold">題組 1</h5>
+                        <p class="small text-muted">卓越科技大學校園資訊系統</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-auto">檢視題目</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" id="bquiz-2">
+                    <div class="card h-100 border-0 shadow-sm text-center p-3">
+                        <h5 class="fw-bold">題組 2</h5>
+                        <p class="small text-muted">健康促進網社群平台</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-auto">檢視題目</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" id="bquiz-3">
+                    <div class="card h-100 border-0 shadow-sm text-center p-3">
+                        <h5 class="fw-bold">題組 3</h5>
+                        <p class="small text-muted">ABC 影城</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-auto">檢視題目</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" id="bquiz-4">
+                    <div class="card h-100 border-0 shadow-sm text-center p-3">
+                        <h5 class="fw-bold">題組 4</h5>
+                        <p class="small text-muted">精品電子商務</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-auto">檢視題目</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div id="container-bquiz"></div>
-    <div class="container-content bquiz">
+    <!-- 區塊 4: PHP 專案 -->
+    <section id="php" class="section-block section-php">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2 class="fw-bold">PHP 原生開發</h2>
+                <p class="text-muted">MVC 架構、物件導向 (OOP) 與 API 串接應用</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0 project-card">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">購物商城核心 API</h5>
+                            <p class="card-text text-secondary">使用原生 PHP 開發會員系統、購物車邏輯與第三方支付回傳處理。</p>
+                            <span class="badge bg-secondary">OOP</span>
+                            <span class="badge bg-secondary">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0 project-card">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">簡易 Blog 系統</h5>
+                            <p class="card-text text-secondary">利用 PDO 進行 SQL 注入防護，支援 Markdown 文章渲染與後台登入管理。</p>
+                            <span class="badge bg-secondary">PDO</span>
+                            <span class="badge bg-secondary">RESTful</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </div>
+    <!-- 區塊 5: Laravel 專案 -->
+    <section id="laravel" class="section-block section-laravel">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2 class="fw-bold">Laravel 框架實作</h2>
+                <p class="text-muted">Eloquent ORM、佇列（Queue）與認證模組</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0 project-card">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">企業資源管理系統 (ERP)</h5>
+                            <p class="card-text text-secondary">運用 Laravel Breeze / Sanctum 進行權限管理，配合 Migration
+                                進行資料庫版本控制。</p>
+                            <span class="badge bg-danger-subtle text-danger">Laravel 11</span>
+                            <span class="badge bg-danger-subtle text-danger">Breeze</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 (Footer) -->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center gy-3">
+                <!-- 版權資訊 -->
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-muted small">
+                        &copy; <span id="current-year"></span> <strong>DevPortfolio</strong>. All Rights Reserved.
+                    </p>
+                </div>
+                <!-- 快捷連結與回到頂部 -->
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-links">
+                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="text-secondary me-3" title="GitHub">
+                            <i class="bi bi-github fs-5"></i>
+                        </a>
+                        <a href="#about" class="btn btn-sm btn-outline-secondary rounded-pill px-3">
+                            <i class="bi bi-arrow-up-short me-1"></i>回到頂部
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自動更新版權年份的小腳本 -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>

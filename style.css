@@ -1,37 +1,98 @@
+/* 平滑捲動與錨點留白 */
 html {
     scroll-behavior: smooth;
-    /* 避免錨點定位時標題被置頂導覽列遮住 */
-    scroll-padding-top: 100px; 
+    /* 配合置頂導覽列高度，避免滾動後標題被蓋住 */
+    scroll-padding-top: 70px;
 }
 
 body {
-    /* 根據導覽列的高度調整留白，避免第一個色塊被蓋住 */
-    padding-top: 100px;
+    padding-top: 70px; /* 根據 navbar 高度保留上方間距 */
+    color: #333333;
+    background-color: #f8fafc;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-.container-content{
-    width: 100%;
-    height: 85vh;
-    margin-top: 1px;
+/* 半透明毛玻璃導覽列 */
+.modern-navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
 }
 
-h2 {
-    margin-bottom: 5px;
+.nav-pills .nav-link {
+    color: #495057;
+    font-weight: 500;
+    margin: 0 4px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
 }
 
-.portfolio{
-    background-color: blue;
+.nav-pills .nav-link:hover {
+    color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.08);
 }
 
-.php{
-    background-color: red;
+.nav-pills .nav-link.active {
+    background-color: #0d6efd;
+    color: #ffffff;
 }
 
-.laravel{
-    background-color: yellow;
+/* 區塊基本樣式：最小高度取代固定高度，避免內容超出破版 */
+.section-block {
+    min-height: 85vh;
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
 }
 
-.bquiz{
-    background-color: gray;
+/* 各主題區塊的低飽和柔和色系 */
+.section-about {
+    background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
 }
 
+.section-php {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.section-laravel {
+    background-color: #ffffff;
+    border-top: 1px solid #e9ecef;
+}
+
+.section-bquiz {
+    background-color: #f8fafc;
+    border-top: 1px solid #e9ecef;
+}
+
+/* 卡片互動效果 */
+.project-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 新增：前端練習區塊的背景樣式 */
+.section-frontend {
+    background-color: #ffffff;
+    border-top: 1px solid #e9ecef;
+}
+
+/* 頁尾樣式 */
+.footer {
+    background-color: #ffffff;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer .footer-links a {
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.footer .footer-links a:hover {
+    color: #0d6efd !important;
+}
