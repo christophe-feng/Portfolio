@@ -77,6 +77,3 @@ body {
 .footer .footer-links a {
     transition: color 0.2s ease, opacity 0.2s ease;
 }
-.footer .footer-links a:hover {
-    color: #0d6efd !important;
-}
